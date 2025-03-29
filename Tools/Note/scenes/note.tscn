@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://crqd5idfg43dx"]
+
+[ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_tcibq"]
+[ext_resource type="Script" uid="uid://blaea5cjijoj4" path="res://Tools/ProgressClock/scripts/TitleEdit.gd" id="2_eg3d7"]
+[ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="2_vaeu6"]
+[ext_resource type="Script" uid="uid://c7boavfdlcmfl" path="res://Tools/ProgressClock/scripts/BodyEdit.gd" id="3_vaeu6"]
+
+[node name="Window" type="Window"]
+handle_input_locally = false
+gui_embed_subwindows = true
+title = "Note"
+initial_position = 1
+size = Vector2i(400, 200)
+min_size = Vector2i(400, 200)
+theme = ExtResource("1_tcibq")
+
+[node name="Body" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_tcibq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="Body/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+
+[node name="PopupMenu" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
+title = "File"
+
+[node name="PopupMenu2" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
+auto_translate_mode = 1
+title = "Edit"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Edit" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "Editing"
+script = ExtResource("2_vaeu6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_tcibq")
+follow_focus = true
+scroll_vertical_custom_step = 1.0
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LineEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tcibq")
+theme_type_variation = &"HeaderLarge"
+placeholder_text = "Title."
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+script = ExtResource("2_eg3d7")
+
+[node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_tcibq")
+placeholder_text = "Lorem ipsum dolor sit amet."
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+script = ExtResource("3_vaeu6")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer/Edit" method="_on_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/LineEdit" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TextEdit" method="_on_edit_toggled"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c846jovk82hlx"
+path="res://.godot/imported/clickmask.bmp-7776ed76cd285fc68ae604d970c3132b.res"
+
+[deps]
+
+source_file="res://Tools/ProgressClock/res/clickmask.bmp"
+dest_files=["res://.godot/imported/clickmask.bmp-7776ed76cd285fc68ae604d970c3132b.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
