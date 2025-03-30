@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://bn6ki7l4atr6q"]
+
+[ext_resource type="Script" uid="uid://bn1l5lpa1d6o" path="res://Tools/DiceRoller/scripts/die.gd" id="1_2b18l"]
+[ext_resource type="Texture2D" uid="uid://dosc6e5t5lde6" path="res://Tools/DiceRoller/resources/d6/albedo0.png" id="1_k8fvp"]
+[ext_resource type="Texture2D" uid="uid://b4160lqanj4x4" path="res://Tools/DiceRoller/resources/d6/normal.png" id="2_2b18l"]
+[ext_resource type="AudioStream" uid="uid://b8xmsq5hn1m1q" path="res://Tools/DiceRoller/resources/dieclack.wav" id="2_mctag"]
+[ext_resource type="ArrayMesh" uid="uid://bmu1p7gmatulf" path="res://Tools/DiceRoller/resources/d6/d6.obj" id="3_mctag"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h258s"]
+friction = 0.5
+rough = true
+bounce = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bwhpj"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n6d8q"]
+friction = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w23oh"]
+radius = 0.352584
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iegn"]
+albedo_texture = ExtResource("1_k8fvp")
+normal_enabled = true
+normal_texture = ExtResource("2_2b18l")
+
+[node name="d6" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_h258s")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_2b18l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bwhpj")
+
+[node name="Bump" type="RigidBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_n6d8q")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bump"]
+shape = SubResource("SphereShape3D_w23oh")
+
+[node name="1" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="2" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="3" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="4" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="5" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="6" type="Node3D" parent="." groups=["faces"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_mctag")
+attenuation_filter_db = 0.0
+
+[node name="D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1iegn")
+mesh = ExtResource("3_mctag")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Bump" to="." method="_on_bumper_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_AudioStreamPlayer3D_finished"]

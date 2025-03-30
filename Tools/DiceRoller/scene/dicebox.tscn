@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxa0jm5pj0nc5"]
+
+[ext_resource type="PackedScene" uid="uid://bn6ki7l4atr6q" path="res://Tools/DiceRoller/scene/d6.tscn" id="1_cq6vi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwh7k"]
+sky_top_color = Color(0.329412, 0.0823529, 0.0823529, 1)
+sky_horizon_color = Color(0.632353, 0.562838, 0.553838, 1)
+ground_horizon_color = Color(0.632353, 0.562838, 0.553838, 1)
+
+[sub_resource type="Sky" id="Sky_qcgdn"]
+sky_material = SubResource("ProceduralSkyMaterial_cwh7k")
+
+[sub_resource type="Environment" id="Environment_65nj4"]
+background_mode = 1
+background_color = Color(0.168627, 0.0509804, 0.0352941, 1)
+sky = SubResource("Sky_qcgdn")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_strength = 1.9
+glow_bloom = 0.1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kbyx8"]
+friction = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp5n3"]
+transparency = 1
+albedo_color = Color(0.54902, 0.380392, 0.301961, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3s8t"]
+size = Vector3(14.2207, 1.48047, 14.2373)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_26255"]
+rough = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yx0qe"]
+albedo_color = Color(0.109804, 0.345098, 0, 1)
+roughness = 0.61
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2udp0"]
+size = Vector3(100, 0.25, 100)
+
+[node name="DiceBox" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_65nj4")
+
+[node name="Position3D" type="Node3D" parent="."]
+transform = Transform3D(0.990006, -0.136025, 0.0372311, -0.0315763, 0.0434968, 0.998554, -0.137448, -0.98975, 0.0387669, 0, 4.67036, 2.65443)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0187263, 0.999825, 0, -0.999825, -0.0187263, 0.000900834, 9.50093, -0.00278969)
+light_color = Color(1, 0.870588, 0.721569, 1)
+light_energy = 10.0
+light_size = 1.0
+light_specular = 0.0
+shadow_enabled = true
+spot_range = 58.6135
+spot_angle = 34.9991
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99994, -0.0109605, -4.56042e-10, -4.34241e-05, -0.00396168, 0.999992, -0.0109604, -0.999932, -0.00396192, 0, 8.44258, 2.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00920223, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_kbyx8")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_rp5n3")
+use_collision = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68, 0)
+radius = 7.04998
+height = 9.44416
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="StaticBody3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74229e-08, 0, -8.74228e-08, -1, 0, -1.48218, 0)
+operation = 2
+use_collision = true
+radius = 6.0
+height = 36.5662
+sides = 16
+cone = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.999771, 0, -0.021431, 0, 1, 0, 0.021431, 0, 0.99977, 0, 9.63929, 0)
+shape = SubResource("BoxShape3D_p3s8t")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.999771, 0, -0.021431, 0, 1, 0, 0.021431, 0, 0.99977, 0, -0.632611, 0)
+shape = SubResource("BoxShape3D_p3s8t")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_26255")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00920223, 0.088671, 0)
+material_override = SubResource("StandardMaterial3D_yx0qe")
+use_collision = true
+radius = 3.39745
+height = 0.25
+sides = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_2udp0")
+
+[node name="d6" parent="." instance=ExtResource("1_cq6vi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.595746, 5.4145, 0.116391)
+
+[connection signal="sleeping_state_changed" from="d6" to="d6" method="_on_sleeping_state_changed"]
