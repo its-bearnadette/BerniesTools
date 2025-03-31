@@ -4,7 +4,17 @@
 [ext_resource type="Script" uid="uid://8d7nnvrmlkou" path="res://Tools/DiceRoller/scripts/diceroller.gd" id="2_t8ntp"]
 [ext_resource type="FontFile" uid="uid://cv7k8nak1nu7g" path="res://style/font/Urbanist-Black.ttf" id="3_jdpq7"]
 
-[node name="Diceroller" type="Panel"]
+[node name="Window2" type="Window"]
+auto_translate_mode = 1
+handle_input_locally = false
+gui_embed_subwindows = true
+title = "Dice Roller"
+initial_position = 1
+size = Vector2i(400, 200)
+min_size = Vector2i(400, 200)
+theme = ExtResource("1_rhcoy")
+
+[node name="Diceroller" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,45 +23,37 @@ grow_vertical = 2
 theme = ExtResource("1_rhcoy")
 script = ExtResource("2_t8ntp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Diceroller"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -202.0
-offset_top = -235.0
-offset_right = 202.0
-offset_bottom = 56.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_right = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ResultLabel" type="Label" parent="VBoxContainer"]
+[node name="ResultLabel" type="Label" parent="Diceroller/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jdpq7")
 theme_override_font_sizes/font_size = 48
-text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OperandsLabel" type="Label" parent="VBoxContainer"]
+[node name="OperandsLabel" type="Label" parent="Diceroller/VBoxContainer"]
 layout_mode = 2
-text = "B"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LineRecord" type="Label" parent="VBoxContainer"]
+[node name="LineRecord" type="Label" parent="Diceroller/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.2371, 0.198, 0.498039)
-text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InputLine" type="LineEdit" parent="VBoxContainer"]
+[node name="InputLine" type="LineEdit" parent="Diceroller/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "3d6"
 alignment = 1
 
-[connection signal="text_submitted" from="VBoxContainer/InputLine" to="." method="_on_input_line_text_submitted"]
+[connection signal="text_submitted" from="Diceroller/VBoxContainer/InputLine" to="Diceroller" method="_on_input_line_text_submitted"]

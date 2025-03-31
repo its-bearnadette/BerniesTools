@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb5o6pmbchm0d"]
+[gd_scene load_steps=6 format=3 uid="uid://cb5o6pmbchm0d"]
 
 [ext_resource type="Texture2D" uid="uid://beb4tgapuqus2" path="res://images/checker.png" id="1_aum10"]
 [ext_resource type="PackedScene" uid="uid://dnbrvu6k3r2fk" path="res://Tools/ProgressClock/scenes/clock.tscn" id="2_lushf"]
 [ext_resource type="PackedScene" uid="uid://crqd5idfg43dx" path="res://Tools/Note/scenes/note.tscn" id="3_w87pm"]
+[ext_resource type="PackedScene" uid="uid://3pwo7kkfdave" path="res://Tools/DiceRoller/scenes/diceroller.tscn" id="4_lushf"]
+[ext_resource type="PackedScene" uid="uid://d225pk8lxwbrh" path="res://Tools/TurnTracker/scenes/TurnTracker.tscn" id="5_w87pm"]
 
 [node name="MainScreen" type="TextureRect"]
 anchors_preset = 15
@@ -12,16 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_aum10")
 stretch_mode = 1
-
-[node name="Behavior" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 74.0
-offset_right = 74.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 0
@@ -76,48 +68,10 @@ text = "Add Note"
 layout_mode = 2
 text = "Add Clock"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -202.0
-offset_top = -69.0
-offset_right = 202.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="Button2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="Button3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="Button4" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="Button5" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="Button6" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
 [node name="Window" parent="." instance=ExtResource("2_lushf")]
-initial_position = 0
-position = Vector2i(300, 427)
 
 [node name="Window2" parent="." instance=ExtResource("3_w87pm")]
-initial_position = 0
-position = Vector2i(859, 440)
+
+[node name="Window3" parent="." instance=ExtResource("4_lushf")]
+
+[node name="Window4" parent="." instance=ExtResource("5_w87pm")]

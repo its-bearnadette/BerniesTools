@@ -6,16 +6,18 @@ extends Panel
 @onready var InputLine = $VBoxContainer/InputLine
 var rng = RandomNumberGenerator.new()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_up"):
+		InputLine.text = InputRecord.text
+
 func parse_command(input: String) -> void:
 	rng.randomize()
 	var result = dice_syntax.roll(input,rng)
-	print(result.rolls)
+	var rolls = result.rolls[0]
+	var dice = rolls["dice"]
+	OperandsLabel.text = str(dice)
 	ResultLabel.text = str(int(result.result))
-	#OperandsLabel.text = str(result.rolls.dice)
-func roll(sides) -> void:
-	rng.randomize()
-	var result = rng.randi_range(1,sides)
-	print(result)
+
 
 
 func _on_input_line_text_submitted(new_text: String) -> void:
