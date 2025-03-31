@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crqd5idfg43dx"]
+[gd_scene load_steps=6 format=3 uid="uid://crqd5idfg43dx"]
 
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_tcibq"]
 [ext_resource type="Script" uid="uid://blaea5cjijoj4" path="res://Tools/ProgressClock/scripts/TitleEdit.gd" id="2_eg3d7"]
+[ext_resource type="Script" uid="uid://cksiip4i51383" path="res://Tools/Note/scripts/note.gd" id="2_jofqp"]
 [ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="2_vaeu6"]
 [ext_resource type="Script" uid="uid://c7boavfdlcmfl" path="res://Tools/ProgressClock/scripts/BodyEdit.gd" id="3_vaeu6"]
 
@@ -23,6 +24,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_tcibq")
+script = ExtResource("2_jofqp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Body"]
 layout_mode = 1
@@ -41,14 +43,47 @@ theme_override_constants/h_separation = -1
 
 [node name="PopupMenu" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
 title = "File"
+position = Vector2i(15, 22)
+size = Vector2i(100, 50)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu/VBoxContainer"]
+layout_mode = 2
+text = "Save as..."
+
+[node name="Button2" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu/VBoxContainer"]
+layout_mode = 2
+text = "Load"
 
 [node name="PopupMenu2" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
 auto_translate_mode = 1
 title = "Edit"
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/HBoxContainer"]
+[node name="TagsContainer" type="ScrollContainer" parent="Body/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_type_variation = &"TagContainer"
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer/HBoxContainer/TagsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="Body/VBoxContainer/HBoxContainer/TagsContainer/HBoxContainer"]
+layout_mode = 2
+text = "this-is-a-tag"
+expand_to_text_length = true
+
+[node name="AddTag" type="Button" parent="Body/VBoxContainer/HBoxContainer/TagsContainer/HBoxContainer"]
+layout_mode = 2
+text = "+"
 
 [node name="Edit" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -76,7 +111,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LineEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="TitleEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_tcibq")
 theme_type_variation = &"HeaderLarge"
@@ -86,7 +121,7 @@ wrap_mode = 1
 scroll_fit_content_height = true
 script = ExtResource("2_eg3d7")
 
-[node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="BodyEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_tcibq")
@@ -101,5 +136,7 @@ custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
 [connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer/Edit" method="_on_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/LineEdit" method="_on_edit_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TextEdit" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TitleEdit" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/BodyEdit" method="_on_edit_toggled"]
+[connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TitleEdit" to="Body" method="_on_title_text_changed"]
+[connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/BodyEdit" to="Body" method="_on_body_edit_text_changed"]
