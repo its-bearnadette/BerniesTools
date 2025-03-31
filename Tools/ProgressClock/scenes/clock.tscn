@@ -12,13 +12,13 @@
 [ext_resource type="Script" uid="uid://bicpdqhqkbdyp" path="res://Tools/ProgressClock/scripts/spin_box.gd" id="8_a55lg"]
 [ext_resource type="Script" uid="uid://c7boavfdlcmfl" path="res://Tools/ProgressClock/scripts/BodyEdit.gd" id="9_h7iv7"]
 
-[node name="Window" type="Window"]
+[node name="Window2" type="Window"]
 handle_input_locally = false
 gui_embed_subwindows = true
 title = "Progress Clock"
 initial_position = 1
-size = Vector2i(400, 200)
-min_size = Vector2i(400, 200)
+size = Vector2i(400, 225)
+min_size = Vector2i(400, 225)
 theme = ExtResource("1_drul2")
 
 [node name="Body" type="Panel" parent="."]
@@ -38,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer"]
 layout_mode = 2
@@ -66,6 +67,10 @@ text = "Editing"
 script = ExtResource("2_d7hbn")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/HBoxContainer2"]

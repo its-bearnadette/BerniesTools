@@ -1,7 +1,7 @@
 extends TextureProgressBar
 
 var tick_count = max_value
-@export var radius = 63
+@export var radius = 62
 @onready var label = $Label
 @onready var spinbox = $SpinBox
 var has_mouse = false
@@ -25,7 +25,6 @@ func _draw() -> void:
 
 	var center = Vector2(position.x+(size.x/2),position.y+(size.y/2))
 	center = Vector2(64,64)
-	print(center)
 	var endpoint = center+Vector2(0,-radius)
 	for tick in tick_count:
 		draw_line(center,endpoint,Color.BLACK,.5,true)

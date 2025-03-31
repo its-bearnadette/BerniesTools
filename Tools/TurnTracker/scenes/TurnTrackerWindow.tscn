@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://d225pk8lxwbrh"]
+
+[ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_6bdr8"]
+[ext_resource type="Texture2D" uid="uid://r5uplpg5d8e8" path="res://images/g28552.png" id="2_o12xw"]
+
+[node name="Window" type="Window"]
+handle_input_locally = false
+gui_embed_subwindows = true
+title = "Turn Tracker"
+initial_position = 1
+size = Vector2i(412, 600)
+min_size = Vector2i(412, 600)
+theme = ExtResource("1_6bdr8")
+
+[node name="Control" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6bdr8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 378.0
+grow_vertical = 2
+
+[node name="Character" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/Character"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Character/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_o12xw")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/Character/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Name" type="LineEdit" parent="Control/VBoxContainer/Character/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Character Name"
+max_length = 32
+
+[node name="SpinBox" type="SpinBox" parent="Control/VBoxContainer/Character/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Grabber" type="Button" parent="Control/VBoxContainer/Character/HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2

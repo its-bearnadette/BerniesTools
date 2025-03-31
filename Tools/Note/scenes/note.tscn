@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="2_vaeu6"]
 [ext_resource type="Script" uid="uid://c7boavfdlcmfl" path="res://Tools/ProgressClock/scripts/BodyEdit.gd" id="3_vaeu6"]
 
-[node name="Window" type="Window"]
+[node name="Window2" type="Window"]
 handle_input_locally = false
 gui_embed_subwindows = true
 title = "Note"
