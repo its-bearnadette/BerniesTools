@@ -18,10 +18,12 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
+window/size/borderless=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg")
+enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg", "res://addons/markdownlabel/plugin.cfg")
 
 [input]
 

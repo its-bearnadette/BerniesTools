@@ -41,29 +41,28 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/h_separation = -1
 
-[node name="PopupMenu" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
+[node name="File" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
 title = "File"
-position = Vector2i(15, 22)
+position = Vector2i(22, 22)
 size = Vector2i(100, 50)
+min_size = Vector2i(100, 50)
+theme = ExtResource("1_tcibq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/HBoxContainer/MenuBar/File"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu/VBoxContainer"]
+[node name="Save As" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/File/VBoxContainer"]
 layout_mode = 2
 text = "Save as..."
 
-[node name="Button2" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/PopupMenu/VBoxContainer"]
+[node name="Load" type="Button" parent="Body/VBoxContainer/HBoxContainer/MenuBar/File/VBoxContainer"]
 layout_mode = 2
 text = "Load"
-
-[node name="PopupMenu2" type="PopupMenu" parent="Body/VBoxContainer/HBoxContainer/MenuBar"]
-auto_translate_mode = 1
-title = "Edit"
 
 [node name="TagsContainer" type="ScrollContainer" parent="Body/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -76,16 +75,11 @@ vertical_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LineEdit" type="LineEdit" parent="Body/VBoxContainer/HBoxContainer/TagsContainer/HBoxContainer"]
-layout_mode = 2
-text = "this-is-a-tag"
-expand_to_text_length = true
-
 [node name="AddTag" type="Button" parent="Body/VBoxContainer/HBoxContainer/TagsContainer/HBoxContainer"]
 layout_mode = 2
 text = "+"
 
-[node name="Edit" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
+[node name="EditEnable" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
@@ -135,8 +129,8 @@ script = ExtResource("3_vaeu6")
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer/Edit" method="_on_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TitleEdit" method="_on_edit_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/BodyEdit" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/HBoxContainer/EditEnable" method="_on_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TitleEdit" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/BodyEdit" method="_on_edit_toggled"]
 [connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/TitleEdit" to="Body" method="_on_title_text_changed"]
 [connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer/BodyEdit" to="Body" method="_on_body_edit_text_changed"]

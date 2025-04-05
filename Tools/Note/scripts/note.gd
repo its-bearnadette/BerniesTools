@@ -7,7 +7,7 @@ var title : String
 var body : String
 
 # when AddTag is pressed, create a line edit, expand_to_text_length true and connect the signal text_submitted().
-# when text_submitted(), make the text lowercase, remove all breakout characters, and add to the tag array.
+# when text_submitted(), make the text lowercase, make it uneditable, remove all breakout characters add to the tag array. add a [x] button to delete the tag.
 
 func _on_title_text_changed() -> void:
 	title = TitleEdit.text
