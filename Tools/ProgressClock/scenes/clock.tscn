@@ -1,16 +1,82 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnbrvu6k3r2fk"]
+[gd_scene load_steps=24 format=3 uid="uid://dnbrvu6k3r2fk"]
 
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_drul2"]
-[ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="2_d7hbn"]
+[ext_resource type="Script" uid="uid://w3jnmuamridq" path="res://Tools/ProgressClock/scripts/body.gd" id="2_5v7bm"]
+[ext_resource type="Script" uid="uid://cg6bijjbm84nf" path="res://Tools/Note/scripts/window.gd" id="2_f3ave"]
 [ext_resource type="Texture2D" uid="uid://cwutt58ll2ylv" path="res://Tools/ProgressClock/res/circle.png" id="2_t2pea"]
 [ext_resource type="Texture2D" uid="uid://6lr5w3wpygsx" path="res://Tools/ProgressClock/res/circle2.png" id="3_7d88t"]
 [ext_resource type="Script" uid="uid://re3wysm7dm48" path="res://Tools/ProgressClock/scripts/texture_progress_bar.gd" id="4_4bayb"]
 [ext_resource type="AudioStream" uid="uid://cehkc5tbnlcxs" path="res://Tools/ProgressClock/res/switch20.ogg" id="5_j87ru"]
 [ext_resource type="FontFile" uid="uid://b3s77qdpk8msq" path="res://style/font/routed-gothic-wide.ttf" id="6_nfv31"]
 [ext_resource type="BitMap" uid="uid://c846jovk82hlx" path="res://Tools/ProgressClock/res/clickmask.bmp" id="7_vxso3"]
-[ext_resource type="Script" uid="uid://blaea5cjijoj4" path="res://Tools/ProgressClock/scripts/TitleEdit.gd" id="8_3bb3f"]
-[ext_resource type="Script" uid="uid://bicpdqhqkbdyp" path="res://Tools/ProgressClock/scripts/spin_box.gd" id="8_a55lg"]
-[ext_resource type="Script" uid="uid://c7boavfdlcmfl" path="res://Tools/ProgressClock/scripts/BodyEdit.gd" id="9_h7iv7"]
+[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/Note/scenes/test.gd" id="10_5v7bm"]
+[ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="11_f3ave"]
+[ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="12_hcxla"]
+[ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="13_s4ckv"]
+[ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="14_6bejl"]
+[ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="15_1a28n"]
+[ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="16_ofe4q"]
+[ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="17_6s7dk"]
+
+[sub_resource type="Resource" id="Resource_6no5r"]
+resource_local_to_scene = true
+script = ExtResource("12_hcxla")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_covdl"]
+resource_local_to_scene = true
+script = ExtResource("13_s4ckv")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_neg2u"]
+resource_local_to_scene = true
+script = ExtResource("14_6bejl")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_3wxfq"]
+resource_local_to_scene = true
+script = ExtResource("15_1a28n")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_eerol"]
+resource_local_to_scene = true
+script = ExtResource("16_ofe4q")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_dffjx"]
+resource_local_to_scene = true
+script = ExtResource("17_6s7dk")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
 
 [node name="Window2" type="Window"]
 handle_input_locally = false
@@ -20,6 +86,7 @@ initial_position = 1
 size = Vector2i(400, 225)
 min_size = Vector2i(400, 225)
 theme = ExtResource("1_drul2")
+script = ExtResource("2_f3ave")
 
 [node name="Body" type="Panel" parent="."]
 anchors_preset = 15
@@ -30,6 +97,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_drul2")
+script = ExtResource("2_5v7bm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Body"]
 layout_mode = 1
@@ -74,24 +142,46 @@ text = "+"
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
-text = "Editing"
-script = ExtResource("2_d7hbn")
+text = "Editing Enabled"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Body/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-size_flags_vertical = 0
+alignment = 1
 
-[node name="Clock" type="TextureProgressBar" parent="Body/VBoxContainer/HBoxContainer2/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+min_value = 2.0
+max_value = 8.0
+value = 4.0
+rounded = true
+alignment = 1
+
+[node name="Label" type="Label" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "steps"
+
+[node name="CenterContainer" type="CenterContainer" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Clock" type="TextureProgressBar" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer"]
 layout_mode = 2
 theme = ExtResource("1_drul2")
-max_value = 8.0
+max_value = 4.0
 value = 1.0
 rounded = true
 fill_mode = 4
@@ -100,14 +190,14 @@ texture_progress = ExtResource("3_7d88t")
 script = ExtResource("4_4bayb")
 radius = 64
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock"]
 stream = ExtResource("5_j87ru")
 volume_db = -20.0
 pitch_scale = 1.1
 mix_target = 1
 max_polyphony = 4
 
-[node name="Label" type="Label" parent="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock"]
+[node name="Label" type="Label" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,7 +221,7 @@ theme_override_font_sizes/font_size = 32
 text = "0/0"
 horizontal_alignment = 1
 
-[node name="Button" type="TextureButton" parent="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock"]
+[node name="Button" type="TextureButton" parent="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,25 +230,6 @@ grow_horizontal = 2
 grow_vertical = 2
 button_mask = 3
 texture_click_mask = ExtResource("7_vxso3")
-
-[node name="SpinBox" type="SpinBox" parent="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock"]
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 16.0
-offset_right = -12.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 0
-min_value = 2.0
-max_value = 8.0
-value = 8.0
-rounded = true
-script = ExtResource("8_a55lg")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Body/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -174,40 +245,45 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer"]
+[node name="MarkdownEdit" type="PanelContainer" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="LineEdit" type="TextEdit" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 theme = ExtResource("1_drul2")
-theme_type_variation = &"HeaderLarge"
-placeholder_text = "Title."
-editable = false
+theme_type_variation = &"MarkdownEdit"
+script = ExtResource("10_5v7bm")
+
+[node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/MarkdownEdit"]
+layout_mode = 2
 wrap_mode = 1
 scroll_fit_content_height = true
-script = ExtResource("8_3bb3f")
 
-[node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="MarkdownLabel" type="RichTextLabel" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/MarkdownEdit"]
+visible = false
 layout_mode = 2
-size_flags_vertical = 3
+focus_mode = 2
 theme = ExtResource("1_drul2")
-placeholder_text = "Lorem ipsum dolor sit amet."
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
-script = ExtResource("9_h7iv7")
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+script = ExtResource("11_f3ave")
+h1 = SubResource("Resource_6no5r")
+h2 = SubResource("Resource_covdl")
+h3 = SubResource("Resource_neg2u")
+h4 = SubResource("Resource_3wxfq")
+h5 = SubResource("Resource_eerol")
+h6 = SubResource("Resource_dffjx")
+metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer/Edit" method="_on_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock/SpinBox" method="_on_edit_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/VBoxContainer/LineEdit" method="_on_edit_toggled"]
-[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/VBoxContainer/TextEdit" method="_on_edit_toggled"]
-[connection signal="mouse_entered" from="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock" method="_on_mouse_exited"]
-[connection signal="pressed" from="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock" method="_on_button_pressed"]
-[connection signal="value_changed" from="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock/SpinBox" to="Body/VBoxContainer/HBoxContainer2/CenterContainer/Clock" method="_on_spin_box_value_changed"]
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body" method="_on_edit_toggled"]
+[connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/Edit" to="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_button_toggled"]
+[connection signal="value_changed" from="Body/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/SpinBox" to="Body" method="_on_spin_box_value_changed"]
+[connection signal="mouse_entered" from="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock" method="_on_mouse_exited"]
+[connection signal="pressed" from="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock/Button" to="Body/VBoxContainer/HBoxContainer2/VBoxContainer/CenterContainer/Clock" method="_on_button_pressed"]
+[connection signal="text_changed" from="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/MarkdownEdit/TextEdit" to="Body/VBoxContainer/HBoxContainer2/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_text_edit_text_changed"]

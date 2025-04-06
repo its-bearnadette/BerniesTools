@@ -3,7 +3,7 @@ extends TextureProgressBar
 var tick_count = max_value
 @export var radius = 62
 @onready var label = $Label
-@onready var spinbox = $SpinBox
+@onready var spinbox = $"../../HBoxContainer/SpinBox"
 var has_mouse = false
 
 func _ready() -> void:
@@ -57,10 +57,6 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	has_mouse = false
-	pass # Replace with function body.
-
-func _on_spin_box_value_changed(value: int) -> void:
-	_change_max(value)
 	pass # Replace with function body.
 
 func _on_button_pressed() -> void:

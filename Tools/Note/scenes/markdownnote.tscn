@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3jllfbdeuhv8"]
+[gd_scene load_steps=18 format=3 uid="uid://c3jllfbdeuhv8"]
 
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_srg1r"]
+[ext_resource type="Script" uid="uid://cg6bijjbm84nf" path="res://Tools/Note/scripts/window.gd" id="2_048t3"]
 [ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="3_5x1b1"]
 [ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/Note/scenes/test.gd" id="4_048t3"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="5_ivv34"]
@@ -79,6 +80,7 @@ initial_position = 1
 size = Vector2i(400, 200)
 min_size = Vector2i(400, 200)
 theme = ExtResource("1_srg1r")
+script = ExtResource("2_048t3")
 
 [node name="Body" type="Panel" parent="."]
 anchors_preset = 15
@@ -168,6 +170,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_type_variation = &"MarkdownEdit"
 script = ExtResource("4_048t3")
 
 [node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit"]
@@ -196,6 +199,7 @@ metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/HBoxContainer/EditEnable" method="_on_toggled"]
 [connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_button_toggled"]
 [connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit/TextEdit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_text_edit_text_changed"]

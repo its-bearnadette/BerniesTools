@@ -49,4 +49,9 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		CommandRecall.text = input
 		text = ""
 		pass
-	pass # Replace with function body.
+	if new_text.begins_with("!newnote"):
+		$"../.."._on_add_note_pressed()
+
+	if new_text.begins_with("!newclock"):
+		$"../.."._on_add_clock_pressed()
+	clear()

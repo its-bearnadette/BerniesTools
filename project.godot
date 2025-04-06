@@ -16,14 +16,14 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1024
+window/size/viewport_height=768
 window/size/resizable=false
 window/size/borderless=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg", "res://addons/markdownlabel/plugin.cfg")
+enabled=PackedStringArray("res://addons/dice_syntax/plugin.cfg", "res://addons/hexagon_tilemaplayer/plugin.cfg", "res://addons/markdownlabel/plugin.cfg")
 
 [input]
 

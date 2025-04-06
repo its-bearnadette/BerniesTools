@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb5o6pmbchm0d"]
+[gd_scene load_steps=6 format=3 uid="uid://cb5o6pmbchm0d"]
 
 [ext_resource type="Texture2D" uid="uid://beb4tgapuqus2" path="res://images/checker.png" id="1_aum10"]
-[ext_resource type="PackedScene" uid="uid://dnbrvu6k3r2fk" path="res://Tools/ProgressClock/scenes/clock.tscn" id="2_lushf"]
-[ext_resource type="PackedScene" uid="uid://crqd5idfg43dx" path="res://Tools/Note/scenes/note.tscn" id="3_w87pm"]
-[ext_resource type="PackedScene" uid="uid://3pwo7kkfdave" path="res://Tools/DiceRoller/scenes/diceroller.tscn" id="4_lushf"]
-[ext_resource type="PackedScene" uid="uid://d225pk8lxwbrh" path="res://Tools/TurnTracker/scenes/TurnTracker.tscn" id="5_w87pm"]
+[ext_resource type="Script" uid="uid://bnjlr0f8sgvhe" path="res://scripts/main_screen.gd" id="3_w87pm"]
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="6_a46j4"]
 [ext_resource type="Script" uid="uid://k2xugrb0wt4o" path="res://scripts/searchandrun.gd" id="7_23dc1"]
 [ext_resource type="FontFile" uid="uid://cv7k8nak1nu7g" path="res://style/font/Urbanist-Black.ttf" id="8_il54y"]
@@ -18,6 +15,7 @@ grow_vertical = 2
 theme = ExtResource("6_a46j4")
 texture = ExtResource("1_aum10")
 stretch_mode = 1
+script = ExtResource("3_w87pm")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -28,6 +26,7 @@ grow_horizontal = 2
 
 [node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 1
 
 [node name="File" type="PopupMenu" parent="HBoxContainer/MenuBar"]
 title = "File"
@@ -71,10 +70,12 @@ grow_vertical = 2
 
 [node name="Add Note" type="Button" parent="HBoxContainer/MenuBar/Tools/VBoxContainer"]
 layout_mode = 2
+action_mode = 0
 text = "Add Note"
 
 [node name="Add Clock" type="Button" parent="HBoxContainer/MenuBar/Tools/VBoxContainer"]
 layout_mode = 2
+action_mode = 0
 text = "Add Clock"
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
@@ -120,24 +121,11 @@ theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = " _ "
-
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="Close" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = " X "
 
-[node name="Window" parent="." instance=ExtResource("2_lushf")]
-visible = false
-
-[node name="Window2" parent="." instance=ExtResource("3_w87pm")]
-visible = false
-
-[node name="Window3" parent="." instance=ExtResource("4_lushf")]
-visible = false
-
-[node name="Window4" parent="." instance=ExtResource("5_w87pm")]
-visible = false
-
+[connection signal="pressed" from="HBoxContainer/MenuBar/Tools/VBoxContainer/Add Note" to="." method="_on_add_note_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuBar/Tools/VBoxContainer/Add Clock" to="." method="_on_add_clock_pressed"]
 [connection signal="text_submitted" from="HBoxContainer/LineEdit" to="HBoxContainer/LineEdit" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/Close" to="." method="_on_close_pressed"]
