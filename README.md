@@ -18,3 +18,4 @@ Long-shot desires, things outside my ability or the current project scope:
  - Deck of playing cards.
 
 I don't really plan to handle virtual tabletop stuff like maps and tokens. There are plenty of options out there that are mostly fine, and you can use them just fine. This program is made for a specific niche. You could probably do the same thing with Obsidian. 
+https://youtu.be/zsYMWkcf3Yo
