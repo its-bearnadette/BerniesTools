@@ -60,6 +60,8 @@ title = "Tools"
 position = Vector2i(38, 32)
 size = Vector2i(200, 120)
 min_size = Vector2i(200, 120)
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MenuBar/Tools"]
 anchors_preset = 15
