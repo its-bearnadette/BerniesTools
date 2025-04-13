@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://s88twdtrp7se"]
+
+[ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_j7447"]
+[ext_resource type="Script" uid="uid://q4t00h8d8y5g" path="res://Tools/RollTable/scripts/rolltable.gd" id="2_v1kyi"]
+[ext_resource type="Script" uid="uid://2nfqgl3dim0u" path="res://Tools/RollTable/scripts/item_display.gd" id="3_v1kyi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqlux"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+border_color = Color(0.956863, 0.4, 0.027451, 1)
+border_blend = true
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1kyi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.301961, 0.239216, 0.2, 1)
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[node name="Rolltable" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j7447")
+script = ExtResource("2_v1kyi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Item" type="HBoxContainer" parent="VBoxContainer/ItemList"]
+layout_mode = 2
+script = ExtResource("3_v1kyi")
+
+[node name="Number" type="Button" parent="VBoxContainer/ItemList/Item"]
+layout_mode = 2
+text = "#"
+flat = true
+
+[node name="Name" type="LineEdit" parent="VBoxContainer/ItemList/Item"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_j7447")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yqlux")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v1kyi")
+placeholder_text = "item_name"
+
+[node name="Button" type="Button" parent="VBoxContainer/ItemList/Item"]
+layout_mode = 2
+text = "X"
+flat = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Output."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Roll"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "add item to list"
+alignment = 1
+keep_editing_on_text_submit = true
+
+[node name="Node" type="Node" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

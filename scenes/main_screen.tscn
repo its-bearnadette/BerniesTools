@@ -81,6 +81,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Try !help"
 alignment = 1
+keep_editing_on_text_submit = true
 script = ExtResource("7_23dc1")
 
 [node name="Diceroller" type="PanelContainer" parent="HBoxContainer/LineEdit"]

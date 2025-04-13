@@ -49,9 +49,13 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		CommandRecall.text = input
 		text = ""
 		pass
-	if new_text.begins_with("!newnote"):
+	if new_text.begins_with("!note"):
 		$"../.."._on_add_note_pressed()
 
-	if new_text.begins_with("!newclock"):
+	if new_text.begins_with("!clock"):
 		$"../.."._on_add_clock_pressed()
+	
+	if new_text.begins_with("!table"):
+		print("work in progress!")
+		pass
 	clear()
