@@ -56,6 +56,5 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		$"../.."._on_add_clock_pressed()
 	
 	if new_text.begins_with("!table"):
-		print("work in progress!")
-		pass
+		$"../.."._on_add_rolltable_pressed()
 	clear()
