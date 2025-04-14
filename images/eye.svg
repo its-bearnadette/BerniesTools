@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2in"
+   height="2in"
+   viewBox="0 0 50.8 50.8"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="eyeclosed.png"
+   inkscape:export-xdpi="16"
+   inkscape:export-ydpi="16"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="eye.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.28"
+     inkscape:cx="160.9375"
+     inkscape:cy="91.40625"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g292"
+       transform="translate(19.016928,2.8938803)">
+      <circle
+         style="fill:#4d3d33;fill-opacity:1;stroke-width:1;stroke-linecap:square;paint-order:markers fill stroke"
+         id="path412"
+         cx="-58.458088"
+         cy="23.242327"
+         r="11.162109" />
+      <path
+         style="fill:#4d3d33;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m -37.736197,24.717114 c -2.140685,-1.461629 -12.564829,-9.272389 -23.268776,-9.155842 -10.703947,0.116547 -19.837865,6.458758 -24.169474,9.165339 -2.100032,1.312193 4.077448,-10.7535 10.867902,-15.3869772 6.790454,-4.6334778 17.206391,-5.4263463 25.453609,-1.9664379 8.247218,3.4599091 13.257424,18.8055491 11.116739,17.3439181 z"
+         id="path1696"
+         sodipodi:nodetypes="zzszzz" />
+    </g>
+    <path
+       style="fill:#4d3d33;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 49.213571,19.031625 c -2.14069,1.461631 -2.84955,6.885148 -21.821836,7.398844 -18.9722873,0.513696 -21.2848053,-4.70176 -25.6164143,-7.408341 -2.10003197,-1.312193 -0.114167,12.179663 9.6985983,16.99477 9.812765,4.815107 17.342166,4.955436 26.622912,0.358645 9.28075,-4.596791 13.25742,-18.805548 11.11674,-17.343918 z"
+       id="path1696-9"
+       sodipodi:nodetypes="zzszzz" />
+  </g>
+</svg>

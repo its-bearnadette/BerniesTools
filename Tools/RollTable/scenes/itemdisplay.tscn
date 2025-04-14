@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx215qes0wokm"]
+
+[ext_resource type="Script" uid="uid://2nfqgl3dim0u" path="res://Tools/RollTable/scripts/item_display.gd" id="1_gsmxv"]
+[ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="2_0ckh5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrsjr"]
+content_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqlux"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 3
+border_color = Color(0.956863, 0.4, 0.027451, 1)
+border_blend = true
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1kyi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.301961, 0.239216, 0.2, 1)
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2twkq"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[node name="Item" type="HBoxContainer"]
+script = ExtResource("1_gsmxv")
+
+[node name="Number" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wrsjr")
+text = "#"
+
+[node name="Name" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_0ckh5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yqlux")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v1kyi")
+placeholder_text = "item_name"
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2twkq")
+text = "X"
+flat = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[connection signal="text_changed" from="Name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
