@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://s88twdtrp7se"]
+[gd_scene load_steps=8 format=3 uid="uid://s88twdtrp7se"]
 
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_j7447"]
 [ext_resource type="Script" uid="uid://q4t00h8d8y5g" path="res://Tools/RollTable/scripts/rolltable.gd" id="2_v1kyi"]
@@ -6,6 +6,10 @@
 [ext_resource type="FontFile" uid="uid://ns7hme14x3ef" path="res://style/font/AtkinsonHyperlegible-Bold.ttf" id="4_r4npv"]
 [ext_resource type="Texture2D" uid="uid://d3prco7rebyjt" path="res://images/eyeclosed.png" id="4_wrsjr"]
 [ext_resource type="Texture2D" uid="uid://dr83grka2vl4a" path="res://images/eyeopen.png" id="5_2twkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4lfb"]
+content_margin_top = 25.0
+content_margin_bottom = 25.0
 
 [node name="Rolltable" type="PanelContainer"]
 anchors_preset = 15
@@ -20,15 +24,11 @@ script = ExtResource("2_v1kyi")
 layout_mode = 2
 alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_j7447")
+follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="ListDisplay" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
@@ -66,11 +66,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_r4npv")
 theme_override_font_sizes/font_size = 24
-text = "Output."
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r4lfb")
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
