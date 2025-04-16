@@ -37,7 +37,4 @@ func _monospace():
 		set_caret_column(get_caret_column()-1)
 
 func _header():
-	if has_selection():
-		insert_text("#",get_selection_origin_line(),get_selection_origin_column())
-	else:
-		insert_text("#",get_caret_line(),0)
+	insert_text("#",get_caret_line(),0)
