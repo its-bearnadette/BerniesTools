@@ -1,6 +1,11 @@
 # BerniesTools
  A simple kit of tools for GMs and players of TRPGs.
 
+Near complete features.
+- Notes.
+- Progress clocks.
+
+
 Planned features, will definitely be present in the finished product:
 - A simple to use but very flexible (optionally) physically simulated 3D dice roller.
 - Pinnable "sticky" notes.

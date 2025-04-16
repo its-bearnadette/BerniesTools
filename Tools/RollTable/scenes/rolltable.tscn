@@ -43,6 +43,7 @@ horizontal_scroll_mode = 0
 
 [node name="ListDisplay" type="VBoxContainer" parent="Rolltable/VBoxContainer/ScrollContainer"]
 visible = false
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

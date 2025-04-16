@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://csf8mf0egencb"]
 
-[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/Note/scenes/test.gd" id="1_ehkex"]
+[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/StickyNote/scripts/stickynote.gd" id="1_ehkex"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="1_vbegm"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_ehkex"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_xersf"]

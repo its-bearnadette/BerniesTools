@@ -3,9 +3,9 @@
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="1_srg1r"]
 [ext_resource type="Script" uid="uid://cg6bijjbm84nf" path="res://Tools/Note/scripts/window.gd" id="2_048t3"]
 [ext_resource type="Script" uid="uid://8xfomon67q8" path="res://Tools/Note/scripts/edit.gd" id="3_5x1b1"]
-[ext_resource type="Script" uid="uid://b17u82cnkau53" path="res://Tools/Note/scenes/markdownnote.gd" id="3_ivv34"]
-[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/Note/scenes/test.gd" id="4_048t3"]
+[ext_resource type="Script" uid="uid://b17u82cnkau53" path="res://Tools/Note/scripts/saveload.gd" id="3_ivv34"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="5_ivv34"]
+[ext_resource type="Script" uid="uid://camy4vwi5qsi8" path="res://Tools/Note/scripts/markdown_note.gd" id="5_s5xxa"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="6_s5xxa"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="7_rh6g6"]
 [ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="8_jl0jr"]
@@ -177,7 +177,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"MarkdownEdit"
-script = ExtResource("4_048t3")
+script = ExtResource("5_s5xxa")
 
 [node name="TextEdit" type="TextEdit" parent="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit"]
 layout_mode = 2
@@ -206,6 +206,10 @@ custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="mouse_entered" from="Body" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Body" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_control_mouse_exited"]
 [connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/HBoxContainer/EditEnable" method="_on_toggled"]
 [connection signal="toggled" from="Body/VBoxContainer/HBoxContainer/EditEnable" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_button_toggled"]
+[connection signal="focus_exited" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit/TextEdit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_text_edit_focus_exited"]
 [connection signal="text_changed" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit/TextEdit" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_text_edit_text_changed"]
+[connection signal="focus_entered" from="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit/MarkdownLabel" to="Body/VBoxContainer/ScrollContainer/HBoxContainer/MarkdownEdit" method="_on_markdown_label_focus_entered"]

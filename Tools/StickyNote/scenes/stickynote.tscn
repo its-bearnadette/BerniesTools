@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://bofgyfm1gpy5n"]
+
+[ext_resource type="Theme" uid="uid://ey77cx5cys1u" path="res://Tools/StickyNote/res/stickynote.theme" id="1_51uyu"]
+[ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="1_kdu8c"]
+[ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_4na7k"]
+[ext_resource type="Script" uid="uid://cys8jd5nhsimb" path="res://Tools/StickyNote/scripts/grabber.gd" id="2_51uyu"]
+[ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_8lilf"]
+[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/StickyNote/scripts/stickynote.gd" id="3_51uyu"]
+[ext_resource type="Script" uid="uid://1o3dvd61ag83" path="res://Tools/StickyNote/scripts/texteditbehavior.gd" id="4_51uyu"]
+[ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="4_eh2jb"]
+[ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="5_51uyu"]
+[ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="6_ah2re"]
+[ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="7_vyfa7"]
+
+[sub_resource type="Resource" id="Resource_ah2re"]
+resource_local_to_scene = true
+script = ExtResource("2_4na7k")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_vyfa7"]
+resource_local_to_scene = true
+script = ExtResource("3_8lilf")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_b2u1r"]
+resource_local_to_scene = true
+script = ExtResource("4_eh2jb")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_xtyqu"]
+resource_local_to_scene = true
+script = ExtResource("5_51uyu")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_3jlap"]
+resource_local_to_scene = true
+script = ExtResource("6_ah2re")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_nxmb2"]
+resource_local_to_scene = true
+script = ExtResource("7_vyfa7")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+override_font_color = false
+font_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Panel"]
+texture_filter = 2
+texture_repeat = 2
+custom_minimum_size = Vector2(200, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_51uyu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(0.968627, 0.823529, 0.478431, 1)
+script = ExtResource("2_51uyu")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_vertical_custom_step = 1.0
+horizontal_scroll_mode = 0
+
+[node name="MarkdownEdit" type="PanelContainer" parent="VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 1
+theme = ExtResource("1_51uyu")
+theme_type_variation = &"MarkdownEdit"
+script = ExtResource("3_51uyu")
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/ScrollContainer2/MarkdownEdit"]
+layout_mode = 2
+emoji_menu_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+caret_multiple = false
+script = ExtResource("4_51uyu")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer2/MarkdownEdit"]
+visible = false
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+script = ExtResource("1_kdu8c")
+h1 = SubResource("Resource_ah2re")
+h2 = SubResource("Resource_vyfa7")
+h3 = SubResource("Resource_b2u1r")
+h4 = SubResource("Resource_xtyqu")
+h5 = SubResource("Resource_3jlap")
+h6 = SubResource("Resource_nxmb2")
+metadata/_custom_type_script = "uid://dbap0gqox0ty1"
+
+[connection signal="mouse_entered" from="." to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="." to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_mouse_exited"]
+[connection signal="focus_exited" from="VBoxContainer/ScrollContainer2/MarkdownEdit/TextEdit" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_text_edit_focus_exited"]
+[connection signal="text_changed" from="VBoxContainer/ScrollContainer2/MarkdownEdit/TextEdit" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_text_edit_text_changed"]
+[connection signal="focus_entered" from="VBoxContainer/ScrollContainer2/MarkdownEdit/MarkdownLabel" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_markdown_label_focus_entered"]

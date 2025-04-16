@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cehkc5tbnlcxs" path="res://Tools/ProgressClock/res/switch20.ogg" id="5_j87ru"]
 [ext_resource type="FontFile" uid="uid://b3s77qdpk8msq" path="res://style/font/routed-gothic-wide.ttf" id="6_nfv31"]
 [ext_resource type="BitMap" uid="uid://c846jovk82hlx" path="res://Tools/ProgressClock/res/clickmask.bmp" id="7_vxso3"]
-[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/Note/scenes/test.gd" id="10_5v7bm"]
+[ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/StickyNote/scripts/stickynote.gd" id="10_5v7bm"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="11_f3ave"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="12_hcxla"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="13_s4ckv"]
