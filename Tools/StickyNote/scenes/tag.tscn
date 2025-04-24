@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdun1jypka6gc"]
+
+[ext_resource type="Theme" uid="uid://ey77cx5cys1u" path="res://Tools/StickyNote/res/stickynote.theme" id="1_bgubr"]
+[ext_resource type="Script" uid="uid://q6nmm043s2it" path="res://Tools/StickyNote/scripts/tag.gd" id="1_ewqp5"]
+
+[node name="tex" type="LineEdit"]
+size_flags_vertical = 4
+theme = ExtResource("1_bgubr")
+theme_type_variation = &"Tag"
+placeholder_text = "tag"
+max_length = 26
+expand_to_text_length = true
+script = ExtResource("1_ewqp5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "x"
+flat = true
+
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]
+[connection signal="text_submitted" from="." to="." method="_on_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbs20woepn503"]
+
+[ext_resource type="Texture2D" uid="uid://pkktokih6hrs" path="res://Tools/HexMap/token/pawn.svg" id="1_622n2"]
+
+[node name="Pawn" type="Node2D"]
+
+[node name="Pawn" type="Sprite2D" parent="."]
+texture = ExtResource("1_622n2")

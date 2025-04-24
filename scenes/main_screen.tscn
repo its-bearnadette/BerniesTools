@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb5o6pmbchm0d"]
+[gd_scene load_steps=8 format=3 uid="uid://cb5o6pmbchm0d"]
 
 [ext_resource type="Texture2D" uid="uid://beb4tgapuqus2" path="res://images/checker.png" id="1_aum10"]
 [ext_resource type="Script" uid="uid://bnjlr0f8sgvhe" path="res://scripts/main_screen.gd" id="3_w87pm"]
+[ext_resource type="Script" uid="uid://bg6ebx7ai4pis" path="res://scripts/global/sqids.gd" id="4_a46j4"]
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="6_a46j4"]
 [ext_resource type="Script" uid="uid://k2xugrb0wt4o" path="res://scripts/searchandrun.gd" id="7_23dc1"]
+[ext_resource type="PackedScene" uid="uid://bofgyfm1gpy5n" path="res://Tools/StickyNote/scenes/stickynote.tscn" id="7_il54y"]
 [ext_resource type="FontFile" uid="uid://cv7k8nak1nu7g" path="res://style/font/Urbanist-Black.ttf" id="8_il54y"]
 
 [node name="MainScreen" type="TextureRect"]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,24 +20,36 @@ texture = ExtResource("1_aum10")
 stretch_mode = 1
 script = ExtResource("3_w87pm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Sqids" type="Node" parent="."]
+script = ExtResource("4_a46j4")
+
+[node name="ColorRect1" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 31.0
 grow_horizontal = 2
 
-[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MenuBar" type="MenuBar" parent="ColorRect1/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 1
 
-[node name="File" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+[node name="File" type="PopupMenu" parent="ColorRect1/HBoxContainer/MenuBar"]
 title = "File"
 position = Vector2i(0, 32)
 size = Vector2i(200, 120)
 min_size = Vector2i(200, 120)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MenuBar/File"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect1/HBoxContainer/MenuBar/File"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,15 +57,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="Save" type="Button" parent="HBoxContainer/MenuBar/File/VBoxContainer"]
+[node name="Save" type="Button" parent="ColorRect1/HBoxContainer/MenuBar/File/VBoxContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="Load" type="Button" parent="HBoxContainer/MenuBar/File/VBoxContainer"]
+[node name="Load" type="Button" parent="ColorRect1/HBoxContainer/MenuBar/File/VBoxContainer"]
 layout_mode = 2
 text = "Load"
 
-[node name="Tools" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+[node name="Tools" type="PopupMenu" parent="ColorRect1/HBoxContainer/MenuBar"]
 auto_translate_mode = 1
 title = "Tools"
 position = Vector2i(38, 32)
@@ -59,29 +74,29 @@ min_size = Vector2i(200, 120)
 hide_on_item_selection = false
 hide_on_checkable_item_selection = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MenuBar/Tools"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect1/HBoxContainer/MenuBar/Tools"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Add Note" type="Button" parent="HBoxContainer/MenuBar/Tools/VBoxContainer"]
+[node name="Add Note" type="Button" parent="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
 text = "Add Note"
 
-[node name="Add Clock" type="Button" parent="HBoxContainer/MenuBar/Tools/VBoxContainer"]
+[node name="Add Clock" type="Button" parent="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
 text = "Add Clock"
 
-[node name="Add RollTable" type="Button" parent="HBoxContainer/MenuBar/Tools/VBoxContainer"]
+[node name="Add RollTable" type="Button" parent="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
 text = "Add Roll Table"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="ColorRect1/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Try !help"
@@ -89,7 +104,7 @@ alignment = 1
 keep_editing_on_text_submit = true
 script = ExtResource("7_23dc1")
 
-[node name="Diceroller" type="PanelContainer" parent="HBoxContainer/LineEdit"]
+[node name="Diceroller" type="PanelContainer" parent="ColorRect1/HBoxContainer/LineEdit"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -104,33 +119,63 @@ offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LineEdit/Diceroller"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect1/HBoxContainer/LineEdit/Diceroller"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CommandRecall" type="Label" parent="HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
+[node name="CommandRecall" type="Label" parent="ColorRect1/HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OperandsLabel" type="Label" parent="HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
+[node name="OperandsLabel" type="Label" parent="ColorRect1/HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResultLabel" type="Label" parent="HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
+[node name="ResultLabel" type="Label" parent="ColorRect1/HBoxContainer/LineEdit/Diceroller/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_il54y")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close" type="Button" parent="HBoxContainer"]
+[node name="Close" type="Button" parent="ColorRect1/HBoxContainer"]
 layout_mode = 2
 text = " X "
 
-[connection signal="pressed" from="HBoxContainer/MenuBar/Tools/VBoxContainer/Add Note" to="." method="_on_add_note_pressed"]
-[connection signal="pressed" from="HBoxContainer/MenuBar/Tools/VBoxContainer/Add Clock" to="." method="_on_add_clock_pressed"]
-[connection signal="pressed" from="HBoxContainer/MenuBar/Tools/VBoxContainer/Add RollTable" to="." method="_on_add_rolltable_pressed"]
-[connection signal="text_submitted" from="HBoxContainer/LineEdit" to="HBoxContainer/LineEdit" method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="HBoxContainer/Close" to="." method="_on_close_pressed"]
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "version information."
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="Note" parent="." instance=ExtResource("7_il54y")]
+layout_mode = 1
+
+[node name="Note2" parent="." instance=ExtResource("7_il54y")]
+layout_mode = 1
+
+[connection signal="pressed" from="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer/Add Note" to="." method="_on_add_note_pressed"]
+[connection signal="pressed" from="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer/Add Clock" to="." method="_on_add_clock_pressed"]
+[connection signal="pressed" from="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer/Add RollTable" to="." method="_on_add_rolltable_pressed"]
+[connection signal="text_submitted" from="ColorRect1/HBoxContainer/LineEdit" to="ColorRect1/HBoxContainer/LineEdit" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="ColorRect1/HBoxContainer/Close" to="." method="_on_close_pressed"]

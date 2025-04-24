@@ -1,16 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://bofgyfm1gpy5n"]
+[gd_scene load_steps=22 format=3 uid="uid://bofgyfm1gpy5n"]
 
 [ext_resource type="Theme" uid="uid://ey77cx5cys1u" path="res://Tools/StickyNote/res/stickynote.theme" id="1_51uyu"]
 [ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="1_kdu8c"]
+[ext_resource type="Script" uid="uid://kqxfyxmtucy6" path="res://Tools/StickyNote/scripts/savecontent.gd" id="2_3jlap"]
 [ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="2_4na7k"]
 [ext_resource type="Script" uid="uid://cys8jd5nhsimb" path="res://Tools/StickyNote/scripts/grabber.gd" id="2_51uyu"]
+[ext_resource type="Script" uid="uid://ca1kbfg1lnwo2" path="res://Tools/StickyNote/scripts/grabbers.gd" id="2_xtyqu"]
 [ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="3_8lilf"]
 [ext_resource type="Script" uid="uid://mff4vrk2r4wk" path="res://Tools/StickyNote/scripts/stickynote.gd" id="3_51uyu"]
+[ext_resource type="Script" uid="uid://pri4lcuwbu8a" path="res://Tools/StickyNote/scripts/exitbutton.gd" id="3_b2u1r"]
 [ext_resource type="Script" uid="uid://1o3dvd61ag83" path="res://Tools/StickyNote/scripts/texteditbehavior.gd" id="4_51uyu"]
 [ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="4_eh2jb"]
 [ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="5_51uyu"]
 [ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="6_ah2re"]
 [ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="7_vyfa7"]
+[ext_resource type="Script" uid="uid://boe5fj1a8q5qq" path="res://Tools/StickyNote/scripts/tags_container.gd" id="12_ah2re"]
 
 [sub_resource type="Resource" id="Resource_ah2re"]
 resource_local_to_scene = true
@@ -72,22 +76,143 @@ is_underlined = false
 override_font_color = false
 font_color = Color(1, 1, 1, 1)
 
-[node name="Control" type="Panel"]
+[node name="Note" type="Panel"]
 texture_filter = 2
 texture_repeat = 2
-custom_minimum_size = Vector2(200, 150)
+custom_minimum_size = Vector2(180, 250)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -75.0
-offset_right = 100.0
-offset_bottom = 75.0
+offset_left = -90.0
+offset_top = -125.0
+offset_right = 90.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_51uyu")
+script = ExtResource("2_3jlap")
+
+[node name="Grabbers" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_xtyqu")
+
+[node name="TitleBar" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 36.0
+offset_right = -30.0
+offset_bottom = 34.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 6
+flat = true
+
+[node name="Top" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="Bottom" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="Left" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_right = 6.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="Right" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_right = 6.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="TopLeft" type="Button" parent="Grabbers"]
+layout_mode = 1
+offset_left = -4.0
+offset_top = -4.0
+mouse_default_cursor_shape = 12
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="TopRight" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = -4.0
+offset_right = 4.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="BottomLeft" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_bottom = 4.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+theme_type_variation = &"Edge"
+flat = true
+
+[node name="BottomRight" type="Button" parent="Grabbers"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+theme_type_variation = &"Edge"
+flat = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -96,15 +221,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="TopBar" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.968627, 0.823529, 0.478431, 1)
 script = ExtResource("2_51uyu")
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MenuBar" type="MenuBar" parent="VBoxContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="File" type="PopupMenu" parent="VBoxContainer/TopBar/HBoxContainer/MenuBar"]
+auto_translate_mode = 1
+title = "⋯"
+position = Vector2i(22, 22)
+size = Vector2i(100, 50)
+min_size = Vector2i(100, 50)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopBar/HBoxContainer/MenuBar/File"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Save As" type="Button" parent="VBoxContainer/TopBar/HBoxContainer/MenuBar/File/VBoxContainer"]
+layout_mode = 2
+text = "Save as..."
+
+[node name="Load" type="Button" parent="VBoxContainer/TopBar/HBoxContainer/MenuBar/File/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[node name="Title" type="Label" parent="VBoxContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "filename.md"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Exit" type="Button" parent="VBoxContainer/TopBar/HBoxContainer"]
+layout_mode = 2
+text = "X"
+script = ExtResource("3_b2u1r")
+
+[node name="Content" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -112,7 +285,7 @@ follow_focus = true
 scroll_vertical_custom_step = 1.0
 horizontal_scroll_mode = 0
 
-[node name="MarkdownEdit" type="PanelContainer" parent="VBoxContainer/ScrollContainer2"]
+[node name="MarkdownEdit" type="PanelContainer" parent="VBoxContainer/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -122,7 +295,7 @@ theme = ExtResource("1_51uyu")
 theme_type_variation = &"MarkdownEdit"
 script = ExtResource("3_51uyu")
 
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer/ScrollContainer2/MarkdownEdit"]
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/Content/MarkdownEdit"]
 layout_mode = 2
 emoji_menu_enabled = false
 wrap_mode = 1
@@ -130,7 +303,7 @@ scroll_fit_content_height = true
 caret_multiple = false
 script = ExtResource("4_51uyu")
 
-[node name="MarkdownLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer2/MarkdownEdit"]
+[node name="MarkdownLabel" type="RichTextLabel" parent="VBoxContainer/Content/MarkdownEdit"]
 visible = false
 layout_mode = 2
 focus_mode = 2
@@ -147,10 +320,40 @@ h5 = SubResource("Resource_3jlap")
 h6 = SubResource("Resource_nxmb2")
 metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 
-[connection signal="mouse_entered" from="." to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="." to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_control_mouse_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/TextureRect" to="VBoxContainer/TextureRect" method="_on_mouse_exited"]
-[connection signal="focus_exited" from="VBoxContainer/ScrollContainer2/MarkdownEdit/TextEdit" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_text_edit_focus_exited"]
-[connection signal="text_changed" from="VBoxContainer/ScrollContainer2/MarkdownEdit/TextEdit" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_text_edit_text_changed"]
-[connection signal="focus_entered" from="VBoxContainer/ScrollContainer2/MarkdownEdit/MarkdownLabel" to="VBoxContainer/ScrollContainer2/MarkdownEdit" method="_on_markdown_label_focus_entered"]
+[node name="TagsContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_type_variation = &"TagsContainer"
+follow_focus = true
+vertical_scroll_mode = 0
+script = ExtResource("12_ah2re")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TagsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="tag_entry" type="LineEdit" parent="VBoxContainer/TagsContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_51uyu")
+theme_type_variation = &"tag"
+placeholder_text = "add tag"
+alignment = 1
+max_length = 26
+expand_to_text_length = true
+
+[connection signal="mouse_entered" from="." to="VBoxContainer/Content/MarkdownEdit" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="." to="VBoxContainer/Content/MarkdownEdit" method="_on_control_mouse_exited"]
+[connection signal="button_down" from="Grabbers/TitleBar" to="Grabbers" method="_on_title_bar_button_down"]
+[connection signal="button_up" from="Grabbers/TitleBar" to="Grabbers" method="_on_title_bar_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/TopBar" to="VBoxContainer/TopBar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopBar" to="VBoxContainer/TopBar" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/TopBar/HBoxContainer/MenuBar/File/VBoxContainer/Save As" to="." method="_on_save_as_pressed"]
+[connection signal="pressed" from="VBoxContainer/TopBar/HBoxContainer/MenuBar/File/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/TopBar/HBoxContainer/Exit" to="VBoxContainer/TopBar/HBoxContainer/Exit" method="_on_pressed"]
+[connection signal="focus_exited" from="VBoxContainer/Content/MarkdownEdit/TextEdit" to="VBoxContainer/Content/MarkdownEdit" method="_on_text_edit_focus_exited"]
+[connection signal="text_changed" from="VBoxContainer/Content/MarkdownEdit/TextEdit" to="VBoxContainer/Content/MarkdownEdit" method="_on_text_edit_text_changed"]
+[connection signal="focus_entered" from="VBoxContainer/Content/MarkdownEdit/MarkdownLabel" to="VBoxContainer/Content/MarkdownEdit" method="_on_markdown_label_focus_entered"]
+[connection signal="text_submitted" from="VBoxContainer/TagsContainer/HBoxContainer/tag_entry" to="VBoxContainer/TagsContainer" method="_on_tag_text_submitted"]
+[connection signal="text_submitted" from="VBoxContainer/TagsContainer/HBoxContainer/tag_entry" to="VBoxContainer/TagsContainer/HBoxContainer/tag_entry" method="_on_text_submitted"]
