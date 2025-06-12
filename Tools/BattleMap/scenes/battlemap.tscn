@@ -73,7 +73,7 @@ texture = ExtResource("3_th2ul")
 transform = Transform3D(0.999999, -0.000630544, 0.00139901, 0.000634132, 0.999997, -0.00257967, -0.00139739, 0.00258055, 0.999995, 0, 0, 0)
 
 [node name="kenney_dungeon" type="GridMap" parent="."]
-transform = Transform3D(1, 1.21418e-10, 0, -1.3415e-11, 1, -4.65661e-10, 0, 0, 1, 0.5, 0.01, 0.5)
+transform = Transform3D(1, 2.01225e-11, -8.07794e-28, -1.3415e-11, 1.5, 0, 8.07794e-28, 1.62548e-38, 1, 0.5, 0.01, 0.5)
 mesh_library = ExtResource("4_evdrx")
 cell_size = Vector3(1, 0.9, 1)
 cell_center_y = false
