@@ -1,5 +1,6 @@
 extends LineEdit
 
+@onready var Main = $"../../.."
 @onready var OperandsLabel = $Diceroller/VBoxContainer/OperandsLabel
 @onready var ResultLabel = $Diceroller/VBoxContainer/ResultLabel
 @onready var CommandRecall = $Diceroller/VBoxContainer/CommandRecall
@@ -49,12 +50,16 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		CommandRecall.text = input
 		text = ""
 		pass
+
+	if new_text.begins_with("!add"):
+		# check the text following it for a string name, if it's a Note, Clock, or Table.
+		pass
 	if new_text.begins_with("!note"):
-		$"../.."._on_add_note_pressed()
+		Main._on_add_note_pressed()
 
 	if new_text.begins_with("!clock"):
-		$"../.."._on_add_clock_pressed()
+		Main._on_add_clock_pressed()
 	
 	if new_text.begins_with("!table"):
-		$"../.."._on_add_rolltable_pressed()
+		Main._on_add_rolltable_pressed()
 	clear()

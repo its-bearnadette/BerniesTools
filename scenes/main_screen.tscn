@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb5o6pmbchm0d"]
+[gd_scene load_steps=7 format=3 uid="uid://cb5o6pmbchm0d"]
 
 [ext_resource type="Texture2D" uid="uid://beb4tgapuqus2" path="res://images/checker.png" id="1_aum10"]
 [ext_resource type="Script" uid="uid://bnjlr0f8sgvhe" path="res://scripts/main_screen.gd" id="3_w87pm"]
 [ext_resource type="Script" uid="uid://bg6ebx7ai4pis" path="res://scripts/global/sqids.gd" id="4_a46j4"]
 [ext_resource type="Theme" uid="uid://cniktbk5ckwmp" path="res://style/WarmLight.theme" id="6_a46j4"]
 [ext_resource type="Script" uid="uid://k2xugrb0wt4o" path="res://scripts/searchandrun.gd" id="7_23dc1"]
-[ext_resource type="PackedScene" uid="uid://bofgyfm1gpy5n" path="res://Tools/StickyNote/scenes/stickynote.tscn" id="7_il54y"]
 [ext_resource type="FontFile" uid="uid://cv7k8nak1nu7g" path="res://style/font/Urbanist-Black.ttf" id="8_il54y"]
 
 [node name="MainScreen" type="TextureRect"]
@@ -167,12 +166,6 @@ text = "version information."
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162
-
-[node name="Note" parent="." instance=ExtResource("7_il54y")]
-layout_mode = 1
-
-[node name="Note2" parent="." instance=ExtResource("7_il54y")]
-layout_mode = 1
 
 [connection signal="pressed" from="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer/Add Note" to="." method="_on_add_note_pressed"]
 [connection signal="pressed" from="ColorRect1/HBoxContainer/MenuBar/Tools/VBoxContainer/Add Clock" to="." method="_on_add_clock_pressed"]

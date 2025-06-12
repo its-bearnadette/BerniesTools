@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0cd1umsoittd"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_th2ul"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mmvh2"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(1, 6.32099e-11, 0, -1.3415e-11, 1, -2.32831e-10, 0, 0, 1, 0, 0, 0)
+
+[node name="X-Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.00202871, 0.999993, 0.00321299, 0.00118028, 0.00321538, -0.999994, -0.999998, -0.00202491, -0.0011868, -12.5064, 9.9923, -0.0567315)
+shape = SubResource("WorldBoundaryShape3D_th2ul")
+
+[node name="X+Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.00203039, -0.999996, -0.00195194, -0.00397825, 0.00194385, -0.99999, 0.99999, 0.00203814, -0.00397429, 12.4935, 10.0082, -0.0916651)
+shape = SubResource("WorldBoundaryShape3D_th2ul")
+
+[node name="Y-Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 1.27329e-11, 0, -1.65983e-11, 1, 0, 0, -4.65661e-10, 1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_mmvh2")
+
+[node name="Y+Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 1.28662e-27, 2.7465e-26, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -1.2642e-09, 20, 0)
+shape = SubResource("WorldBoundaryShape3D_mmvh2")
+
+[node name="Z-Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999998, 0.00203153, -0.000763227, -0.000763229, 3.59025e-07, -1, -0.00203153, 0.999998, 1.90968e-06, -0.023933, 10.0325, -12.5741)
+shape = SubResource("WorldBoundaryShape3D_th2ul")
+
+[node name="Z+Wall" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.999996, -0.00203487, 0.00202427, -0.00203474, 0.00515888, -0.999985, 0.0020244, -0.999985, -0.005163, 0.0110423, 9.96798, 12.4257)
+shape = SubResource("WorldBoundaryShape3D_th2ul")

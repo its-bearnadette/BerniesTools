@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cg4jhnq3rrp7l"
+path="res://.godot/imported/gate.obj-2e6eee08c061de5adde1f259106db045.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gate.obj-2e6eee08c061de5adde1f259106db045.mesh"]
+
+source_file="res://Tools/BattleMap/assets/Kenney Dungeon/OBJ format/gate.obj"
+dest_files=["res://.godot/imported/gate.obj-2e6eee08c061de5adde1f259106db045.mesh", "res://.godot/imported/gate.obj-2e6eee08c061de5adde1f259106db045.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

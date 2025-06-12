@@ -1,0 +1,128 @@
+[gd_scene load_steps=32 format=3 uid="uid://balgahn2lpf7o"]
+
+[ext_resource type="PackedScene" uid="uid://wkoy3t7rcdsh" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Arrow_East.fbx" id="1_a1h81"]
+[ext_resource type="PackedScene" uid="uid://dhv80r61oxw77" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Circle.fbx" id="2_t87fq"]
+[ext_resource type="PackedScene" uid="uid://c7uwh5jb5nfqw" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Arrow_North.fbx" id="2_x16mp"]
+[ext_resource type="PackedScene" uid="uid://43a07gaqg0r1" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Arrow_South.fbx" id="3_cy6yv"]
+[ext_resource type="PackedScene" uid="uid://bc0qe27alx5cp" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Arrow_West.fbx" id="4_i71cd"]
+[ext_resource type="PackedScene" uid="uid://dk88u67126h64" path="res://Tools/BattleMap/assets/arrow_tiles/tile_CircleLine_East.fbx" id="6_pxe25"]
+[ext_resource type="PackedScene" uid="uid://b2cakvuoiajiy" path="res://Tools/BattleMap/assets/arrow_tiles/tile_CircleLine_North.fbx" id="7_8bkj3"]
+[ext_resource type="PackedScene" uid="uid://bquue83xec782" path="res://Tools/BattleMap/assets/arrow_tiles/tile_CircleLine_South.fbx" id="8_3m30k"]
+[ext_resource type="PackedScene" uid="uid://8bojf8iskjdt" path="res://Tools/BattleMap/assets/arrow_tiles/tile_CircleLine_West.fbx" id="9_sm30o"]
+[ext_resource type="PackedScene" uid="uid://c0ongkv1sn0qc" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendArrow_East.fbx" id="10_e4nkt"]
+[ext_resource type="PackedScene" uid="uid://b48dvo20qb7h7" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendArrow_North.fbx" id="11_lecgq"]
+[ext_resource type="PackedScene" uid="uid://bmjc7d03jqifr" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendArrow_South.fbx" id="12_pfgfh"]
+[ext_resource type="PackedScene" uid="uid://db3bdvrg47l8u" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendArrow_West.fbx" id="13_w5gue"]
+[ext_resource type="PackedScene" uid="uid://bpspcrqyt1kl" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendLine_EastWest.fbx" id="14_3c1ol"]
+[ext_resource type="PackedScene" uid="uid://myxfgvgwbtcw" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendLine_NorthSouth.fbx" id="15_17qkd"]
+[ext_resource type="PackedScene" uid="uid://bkkv80cexcuo1" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendLine_SouthNorth.fbx" id="16_4gbc3"]
+[ext_resource type="PackedScene" uid="uid://cm5m8vjbyu3e2" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendLine_WestEast.fbx" id="17_t2ccn"]
+[ext_resource type="PackedScene" uid="uid://c610apixspybw" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_EastNorth.fbx" id="18_58xbw"]
+[ext_resource type="PackedScene" uid="uid://be23y6oi7fyyp" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_EastSouth.fbx" id="19_k8rrt"]
+[ext_resource type="PackedScene" uid="uid://34k66n6x3072" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_NorthEast.fbx" id="20_l14ts"]
+[ext_resource type="PackedScene" uid="uid://7qiynfwxnr2y" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_NorthWest.fbx" id="21_g6pgj"]
+[ext_resource type="PackedScene" uid="uid://dqcq6c4b2livq" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_SouthEast.fbx" id="22_uuumd"]
+[ext_resource type="PackedScene" uid="uid://bhcc50puco7sq" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_SouthWest.fbx" id="23_yxyou"]
+[ext_resource type="PackedScene" uid="uid://cs3w2863ma8k3" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_WestNorth.fbx" id="24_bgkr2"]
+[ext_resource type="PackedScene" uid="uid://cs6tid4jnarw" path="res://Tools/BattleMap/assets/arrow_tiles/tile_DescendRightAngle_WestSouth.fbx" id="25_2iq5m"]
+[ext_resource type="PackedScene" uid="uid://c5s5vgtkdcv4u" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Line_NorthSouth.fbx" id="26_ay8iq"]
+[ext_resource type="PackedScene" uid="uid://s70bav3ndboy" path="res://Tools/BattleMap/assets/arrow_tiles/tile_Line_WestEast.fbx" id="27_a3nhh"]
+[ext_resource type="PackedScene" uid="uid://cpwpxlp4kmdf7" path="res://Tools/BattleMap/assets/arrow_tiles/tile_RightAngle_Northeast.fbx" id="28_xhbtc"]
+[ext_resource type="PackedScene" uid="uid://uijecgnc5ugw" path="res://Tools/BattleMap/assets/arrow_tiles/tile_RightAngle_Northwest.fbx" id="29_kw8p5"]
+[ext_resource type="PackedScene" uid="uid://dmb3gp8eopr1o" path="res://Tools/BattleMap/assets/arrow_tiles/tile_RightAngle_Southeast.fbx" id="30_i3p5f"]
+[ext_resource type="PackedScene" uid="uid://dyippp6ru3dic" path="res://Tools/BattleMap/assets/arrow_tiles/tile_RightAngle_Southwest.fbx" id="31_mroyi"]
+
+[node name="Library" type="Node3D"]
+
+[node name="tile_Arrow_East" parent="." instance=ExtResource("1_a1h81")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Arrow_North" parent="." instance=ExtResource("2_x16mp")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Arrow_South" parent="." instance=ExtResource("3_cy6yv")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Arrow_West" parent="." instance=ExtResource("4_i71cd")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Circle" parent="." instance=ExtResource("2_t87fq")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_CircleLine_East" parent="." instance=ExtResource("6_pxe25")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_CircleLine_North" parent="." instance=ExtResource("7_8bkj3")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_CircleLine_South" parent="." instance=ExtResource("8_3m30k")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_CircleLine_West" parent="." instance=ExtResource("9_sm30o")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendArrow_East" parent="." instance=ExtResource("10_e4nkt")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendArrow_North" parent="." instance=ExtResource("11_lecgq")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendArrow_South" parent="." instance=ExtResource("12_pfgfh")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendArrow_West" parent="." instance=ExtResource("13_w5gue")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendLine_EastWest" parent="." instance=ExtResource("14_3c1ol")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendLine_NorthSouth" parent="." instance=ExtResource("15_17qkd")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendLine_SouthNorth" parent="." instance=ExtResource("16_4gbc3")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendLine_WestEast" parent="." instance=ExtResource("17_t2ccn")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_EastNorth" parent="." instance=ExtResource("18_58xbw")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_EastSouth" parent="." instance=ExtResource("19_k8rrt")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_NorthEast" parent="." instance=ExtResource("20_l14ts")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_NorthWest" parent="." instance=ExtResource("21_g6pgj")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_SouthEast" parent="." instance=ExtResource("22_uuumd")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_SouthWest" parent="." instance=ExtResource("23_yxyou")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_WestNorth" parent="." instance=ExtResource("24_bgkr2")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_DescendRightAngle_WestSouth" parent="." instance=ExtResource("25_2iq5m")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Line_NorthSouth" parent="." instance=ExtResource("26_ay8iq")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_Line_WestEast" parent="." instance=ExtResource("27_a3nhh")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_RightAngle_Northeast" parent="." instance=ExtResource("28_xhbtc")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_RightAngle_Northwest" parent="." instance=ExtResource("29_kw8p5")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_RightAngle_Southeast" parent="." instance=ExtResource("30_i3p5f")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="tile_RightAngle_Southwest" parent="." instance=ExtResource("31_mroyi")]
+transform = Transform3D(1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0, 1, 0, 0, 0)

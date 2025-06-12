@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://b74lfaqvcdqwd"]
+
+[ext_resource type="Script" uid="uid://cjte8qihijbg1" path="res://Tools/BattleMap/scripts/pawn.gd" id="1_qdpwb"]
+[ext_resource type="Texture2D" uid="uid://b5xsnotcyxhf8" path="res://Tools/BattleMap/assets/pieceWhite_border02.png" id="2_e876i"]
+[ext_resource type="Script" uid="uid://p57pgpvrofex" path="res://Tools/BattleMap/scripts/camera_rig.gd" id="3_e876i"]
+[ext_resource type="Texture2D" uid="uid://de2rgxvmjlgfo" path="res://Tools/BattleMap/assets/pieceWhite_border11.png" id="3_qdpwb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs45q"]
+radius = 0.473701
+height = 1.24091
+
+[sub_resource type="Gradient" id="Gradient_hs45q"]
+interpolation_mode = 2
+colors = PackedColorArray(0.23, 0.149232, 0.1311, 0.564706, 0.23, 0.14904, 0.1288, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_evdrx"]
+gradient = SubResource("Gradient_hs45q")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_qdpwb"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e876i"]
+gradient = SubResource("Gradient_qdpwb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Pawn" type="Area3D"]
+script = ExtResource("1_qdpwb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.7, 0)
+pixel_size = 0.012
+billboard = 1
+texture = ExtResource("2_e876i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626322, 0)
+shape = SubResource("CapsuleShape3D_hs45q")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0.05, 0)
+texture = SubResource("GradientTexture2D_evdrx")
+
+[node name="CameraRig" type="Node3D" parent="."]
+top_level = true
+script = ExtResource("3_e876i")
+
+[node name="CameraZoom" type="Node3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/CameraZoom"]
+fov = 20.0
+size = 30.0
+
+[node name="CameraTarget" type="Sprite3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+top_level = true
+visible = false
+sorting_offset = 1.0
+modulate = Color(1, 1, 1, 0.176471)
+pixel_size = 0.02
+texture = ExtResource("3_qdpwb")
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraRig/CameraTarget"]
+pixel_size = 0.02
+texture = SubResource("GradientTexture2D_e876i")
+
+[node name="MarkerTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+top_level = true
+visible = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -187.0
+offset_right = -81.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="<button" type="Button" parent="CanvasLayer2/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = " ⮨ "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="^button" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "⮯"
+
+[node name="obutton" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "◉"
+
+[node name="vbutton" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "  ⮬  "
+
+[node name=">button" type="Button" parent="CanvasLayer2/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = " ⮩ "
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer2/Control/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 40.0
+step = 5.0
+
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/<button" to="CameraRig" method="_on_l_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/^button" to="CameraRig" method="_on_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/obutton" to="CameraRig" method="_on_center_obutton_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/vbutton" to="CameraRig" method="_on_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/>button" to="CameraRig" method="_on_r_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer2/Control/HBoxContainer/VSlider" to="CameraRig" method="_on_zoom_slider_value_changed"]
