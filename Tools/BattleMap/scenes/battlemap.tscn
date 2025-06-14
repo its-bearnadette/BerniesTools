@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvpjc8xjnb7v7"]
+[gd_scene load_steps=10 format=4 uid="uid://dvpjc8xjnb7v7"]
 
-[ext_resource type="Texture2D" uid="uid://beb4tgapuqus2" path="res://images/checker.png" id="1_mmvh2"]
+[ext_resource type="Material" uid="uid://b3bcmfflfbxw3" path="res://Tools/BattleMap/assets/basemat.material" id="1_evdrx"]
 [ext_resource type="PackedScene" uid="uid://b74lfaqvcdqwd" path="res://Tools/BattleMap/scenes/pawn.tscn" id="2_mmvh2"]
 [ext_resource type="Texture2D" uid="uid://shhq1khr68w8" path="res://Tools/BattleMap/assets/arrow_basic_n.png" id="3_th2ul"]
 [ext_resource type="MeshLibrary" uid="uid://b3hgg8f0dbok2" path="res://Tools/BattleMap/assets/Kenney Dungeon/kenney_dungeon.meshlib" id="4_evdrx"]
-[ext_resource type="MeshLibrary" uid="uid://ga7aisplk07h" path="res://Tools/BattleMap/assets/arrow_tiles/arrow_tiles.meshlib" id="5_evdrx"]
+[ext_resource type="Script" uid="uid://rox68nsesygf" path="res://Tools/BattleMap/scripts/astar.gd" id="5_hsbmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmvh2"]
 sky_top_color = Color(0, 0.428968, 0.878697, 1)
@@ -21,10 +21,10 @@ sky_material = SubResource("ProceduralSkyMaterial_mmvh2")
 background_mode = 2
 sky = SubResource("Sky_qfudn")
 ambient_light_source = 3
-ambient_light_color = Color(0.647482, 0.759781, 0.757551, 1)
-ambient_light_sky_contribution = 0.01
-ambient_light_energy = 0.5
-reflected_light_source = 1
+ambient_light_color = Color(0.502285, 0.586379, 0.526808, 1)
+ambient_light_sky_contribution = 0.1
+ambient_light_energy = 0.1
+reflected_light_source = 2
 tonemap_mode = 3
 tonemap_exposure = 0.5
 tonemap_white = 0.7
@@ -36,55 +36,63 @@ fog_depth_curve = 2.0
 fog_depth_begin = 70.0
 fog_depth_end = 120.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfudn"]
-albedo_texture = ExtResource("1_mmvh2")
-backlight = Color(0.466181, 0.466181, 0.466181, 1)
-uv1_scale = Vector3(0.5, 0.25, 0.5)
-uv1_offset = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
-uv2_offset = Vector3(0, 1, 0)
-texture_filter = 0
+[sub_resource type="ArrayMesh" id="ArrayMesh_th2ul"]
+_surfaces = [{
+"aabb": AABB(-12.5, -0.5, -12.5, 25, 1, 25),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("1_evdrx"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AABIwQAAAL8AAEhBAABIwQAAAL8AAEjBAABIwQAAAD8AAEjBAABIQQAAAL8AAEjBAABIwQAAAL8AAEjBAABIwQAAAL8AAEhBAABIwQAAAD8AAEjBAABIwQAAAL8AAEjBAABIQQAAAL8AAEjBAABIwQAAAD8AAEjBAABIwQAAAD8AAEhBAABIwQAAAL8AAEhBAABIwQAAAL8AAEhBAABIwQAAAD8AAEhBAABIQQAAAD8AAEhBAABIQQAAAD8AAEhBAABIwQAAAD8AAEhBAABIwQAAAD8AAEjBAABIwQAAAL8AAEhBAABIQQAAAL8AAEhBAABIQQAAAL8AAEjBAABIQQAAAD8AAEhBAABIQQAAAL8AAEhBAABIwQAAAL8AAEhBAABIQQAAAL8AAEjBAABIQQAAAL8AAEhBAABIQQAAAD8AAEhBAABIQQAAAL8AAEjBAABIQQAAAD8AAEjBAABIwQAAAD8AAEjBAABIwQAAAD8AAEjBAABIQQAAAD8AAEjBAABIQQAAAD8AAEhBAABIQQAAAD8AAEhBAABIQQAAAD8AAEjBAABIQQAAAL8AAEjBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
 transform = Transform3D(0.999999, 0.000634151, -0.00139738, -0.000630524, 0.999996, 0.00258055, 0.00139902, -0.00257967, 0.999996, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.665962, 0.68215, 0.301936, -0.407092, -0.00684471, 0.913362, 0.625116, -0.73118, 0.273139, 4.69663e-09, 8, 0)
+light_color = Color(1, 0.9265, 0.91, 1)
 shadow_enabled = true
-shadow_normal_bias = 3.188
-directional_shadow_max_distance = 150.0
+shadow_opacity = 0.85
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 120.0
+directional_shadow_pancake_size = 1.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lon1e")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 7.75376e-08, -2.07219e-08, -1.3415e-11, 1, -3.1013e-07, 0, 0, 1, 1.5277e-08, -0.5, 0)
-size = Vector3(25, 1, 25)
-material = SubResource("StandardMaterial3D_qfudn")
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, -12)
+visible = false
+mesh = SubResource("ArrayMesh_th2ul")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 6.32099e-11, 0, -1.3415e-11, 1, -2.32831e-10, 0, 0, 1, 0.0199405, -0.0367687, 14.2532)
+[node name="Sprite3D" type="Sprite3D" parent="CSGBakedMeshInstance3D"]
+transform = Transform3D(1, -7.74069e-08, 2.07219e-08, 1.29603e-11, 1, 3.09665e-07, 0, 2.32831e-10, 1, 0.0199407, 0.463236, 14.2532)
 flip_v = true
 pixel_size = 0.02
 axis = 1
 texture = ExtResource("3_th2ul")
 
-[node name="Pawn" parent="." instance=ExtResource("2_mmvh2")]
-transform = Transform3D(0.999999, -0.000630544, 0.00139901, 0.000634132, 0.999997, -0.00257967, -0.00139739, 0.00258055, 0.999995, 0, 0, 0)
+[node name="Pawn" parent="." node_paths=PackedStringArray("grid") instance=ExtResource("2_mmvh2")]
+transform = Transform3D(0.999999, -0.000630544, 0.00139901, 0.000634132, 0.999997, -0.00257967, -0.00139739, 0.00258055, 0.999995, -2.7693e-05, -1.13167e-08, -2.47569e-05)
+grid = NodePath("../GridMap/ASTAR")
 
-[node name="kenney_dungeon" type="GridMap" parent="."]
-transform = Transform3D(1, 2.01225e-11, -8.07794e-28, -1.3415e-11, 1.5, 0, 8.07794e-28, 1.62548e-38, 1, 0.5, 0.01, 0.5)
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 6.32099e-11, 0, -1.3415e-11, 1, -2.32831e-10, 0, 0, 1, -0.5, 0, -0.5)
 mesh_library = ExtResource("4_evdrx")
-cell_size = Vector3(1, 0.9, 1)
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(0, 65534, 655371, 65535, 65534, 655371, 65534, 65534, 655371, 1, 65534, 655369, 1, 65535, 655371, 1, 0, 655371, 1, 1, 655371, 0, 1, 655371, 65535, 1, 655371, 65534, 1, 655371, 65534, 0, 655371, 65534, 65535, 655371, 65535, 65535, 655371, 0, 65535, 655372, 0, 0, 655371, 65535, 0, 655371, 2, 65534, 1441797, 2, 65535, 1441797, 2, 0, 1441797, 2, 1, 1441797, 2, 2, 1048589, 1, 2, 655365, 0, 2, 655365, 65535, 2, 655365, 65534, 2, 655365, 65533, 2, 1048589, 65533, 1, 1048581, 65533, 0, 1048581, 65533, 65535, 1048581, 65533, 65534, 1048581, 65534, 65533, 1441803, 65533, 65533, 1048581, 0, 65533, 655362, 1, 65533, 5, 2, 65533, 1048589, 65535, 65533, 1441803, 65534, 65532, 655371, 65535, 65532, 655371, 65535, 65531, 655369, 65534, 65531, 655371, 0, 65532, 1441797, 65533, 65532, 1048581, 65533, 65531, 1048581, 0, 65531, 1441797, 65536, 65533, 655367, 65532, 65531, 655373, 65532, 65532, 655373, 65532, 65533, 655373, 65532, 65534, 655373, 65532, 65535, 655373, 65532, 0, 655373, 65532, 1, 655373, 65532, 2, 655373, 65532, 3, 655373, 65533, 3, 655373, 65534, 3, 655373, 65535, 3, 655373, 0, 3, 655373, 1, 3, 655373, 2, 3, 655373, 3, 3, 655373, 3, 2, 655373, 3, 1, 655373, 3, 0, 655373, 3, 65535, 655373, 3, 65534, 655373, 3, 65533, 655373, 3, 65532, 655373, 2, 65532, 655373, 1, 65532, 655373, 1, 65531, 655373, 2, 65531, 655373, 3, 65531, 655373, 65533, 65530, 1048584, 65532, 65530, 1048589, 65533, 65529, 1048578, 65532, 65529, 1048589, 131068, 65530, 1048584, 131067, 65530, 655373, 131067, 65531, 655373, 131067, 65532, 655373, 131067, 65533, 655373, 131067, 65534, 655373, 131067, 65535, 655373, 131067, 0, 655373, 131067, 1, 655373, 131067, 2, 655373, 131067, 3, 655373, 131068, 65531, 1048581, 131068, 65534, 1048581, 131068, 65535, 1048581, 131068, 0, 1048581, 131068, 1, 1048581, 131068, 2, 1048581, 131068, 3, 1048581, 131068, 65532, 1048581, 131068, 65533, 1048581, 131068, 65529, 1048581, 131067, 65529, 1048589, 65531, 65529, 1048589, 65531, 65530, 1048589, 65531, 65531, 1048589, 65531, 65532, 1048589, 65531, 65533, 1048589, 65531, 65534, 1048589, 65531, 65535, 1048589, 65531, 0, 1048589, 65531, 1, 1048589, 65531, 2, 1048589, 65531, 3, 1048589, 1, 65530, 1048589, 1, 65529, 1048589, 1, 65528, 1048589, 0, 65528, 1048589, 65535, 65528, 1048589, 65534, 65528, 1048589, 65533, 65528, 1048589, 65532, 65528, 1048589, 65531, 65528, 1048589, 65534, 65529, 5, 65535, 65529, 5, 0, 65530, 1441797, 0, 65529, 1441805, 65534, 65530, 1441803, 65535, 65530, 1441803)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Arrows" type="GridMap" parent="."]
-transform = Transform3D(1, 6.32099e-11, 0, -1.3415e-11, 1, -2.32831e-10, 0, 0, 1, 6.32099e-11, 1, 0)
-mesh_library = ExtResource("5_evdrx")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
-metadata/_editor_floor_ = Vector3(0, -1, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Baseplate" type="CSGBox3D" parent="GridMap"]
+transform = Transform3D(1, 7.87018e-08, -2.07219e-08, -1.31877e-11, 1, -3.14787e-07, 0, 0, 1, 0.5, -0.5, 0.5)
+material_override = ExtResource("1_evdrx")
+
+[node name="ASTAR" type="Node" parent="GridMap"]
+script = ExtResource("5_hsbmo")
+
+[node name="Center" type="Node3D" parent="GridMap"]
+transform = Transform3D(1, 1.21418e-10, 0, -1.31877e-11, 1, -4.65661e-10, 0, 0, 1, -11.5168, 0.0233464, -11.4832)

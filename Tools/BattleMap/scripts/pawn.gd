@@ -1,4 +1,6 @@
 extends Area3D
 
+@export var grid : Node
+
 func _ready() -> void:
-	global_position = Vector3(1,0,1)
+	var line_size = grid.line_size

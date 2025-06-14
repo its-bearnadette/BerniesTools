@@ -1,12 +1,13 @@
 extends Node3D
 
+@onready var pawn = $".."
 @onready var camera: Camera3D = $CameraZoom/Camera3D
 @onready var new_rotation = 0
 @onready var new_pitch = -30
 @onready var zoom_target = $CameraZoom
 @onready var new_zoom = 50
 @onready var camera_target = $CameraTarget
-@onready var zoom_slider: VSlider = $"../CanvasLayer2/Control/HBoxContainer/VSlider"
+@onready var zoom_slider: VSlider = $CanvasLayer2/Control/HBoxContainer/VSlider
 
 var is_rotating = false
 var camera_locked_to_pawn = true
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		camera_locked_to_pawn = true
 
 	if camera_locked_to_pawn:
-		camera_target.global_position = Vector3(global_position.x,.1,global_position.z)
+		camera_target.global_position = Vector3(pawn.global_position.x,.1,pawn.global_position.z)
 		camera_target.visible = false
 	else:
 		camera_target.visible = true

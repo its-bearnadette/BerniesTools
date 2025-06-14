@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b74lfaqvcdqwd"]
+[gd_scene load_steps=11 format=3 uid="uid://b74lfaqvcdqwd"]
 
 [ext_resource type="Script" uid="uid://cjte8qihijbg1" path="res://Tools/BattleMap/scripts/pawn.gd" id="1_qdpwb"]
 [ext_resource type="Texture2D" uid="uid://b5xsnotcyxhf8" path="res://Tools/BattleMap/assets/pieceWhite_border02.png" id="2_e876i"]
 [ext_resource type="Script" uid="uid://p57pgpvrofex" path="res://Tools/BattleMap/scripts/camera_rig.gd" id="3_e876i"]
 [ext_resource type="Texture2D" uid="uid://de2rgxvmjlgfo" path="res://Tools/BattleMap/assets/pieceWhite_border11.png" id="3_qdpwb"]
+[ext_resource type="MeshLibrary" uid="uid://ga7aisplk07h" path="res://Tools/BattleMap/assets/arrow_tiles/arrow_tiles.meshlib" id="5_7j83c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs45q"]
 radius = 0.473701
@@ -31,7 +32,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[node name="Pawn" type="Area3D"]
+[node name="Area3D" type="Area3D"]
 script = ExtResource("1_qdpwb")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -47,6 +48,19 @@ shape = SubResource("CapsuleShape3D_hs45q")
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0.05, 0)
 texture = SubResource("GradientTexture2D_evdrx")
+
+[node name="MarkerTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+top_level = true
+visible = false
+
+[node name="Arrows" type="GridMap" parent="."]
+transform = Transform3D(1, 6.32099e-11, 0, -1.3415e-11, 1, -2.32831e-10, 0, 0, 1, -0.5, 1, -0.5)
+top_level = true
+mesh_library = ExtResource("5_7j83c")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="CameraRig" type="Node3D" parent="."]
 top_level = true
@@ -72,15 +86,10 @@ texture = ExtResource("3_qdpwb")
 pixel_size = 0.02
 texture = SubResource("GradientTexture2D_e876i")
 
-[node name="MarkerTarget" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-top_level = true
-visible = false
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="CameraRig"]
 layer = 2
 
-[node name="Control" type="Control" parent="CanvasLayer2"]
+[node name="Control" type="Control" parent="CameraRig/CanvasLayer2"]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -92,7 +101,7 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CameraRig/CanvasLayer2/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,47 +113,47 @@ offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="<button" type="Button" parent="CanvasLayer2/Control/HBoxContainer"]
+[node name="<button" type="Button" parent="CameraRig/CanvasLayer2/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = " ⮨ "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CameraRig/CanvasLayer2/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="^button" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+[node name="^button" type="Button" parent="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "⮯"
 
-[node name="obutton" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+[node name="obutton" type="Button" parent="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "◉"
 
-[node name="vbutton" type="Button" parent="CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
+[node name="vbutton" type="Button" parent="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = "  ⮬  "
 
-[node name=">button" type="Button" parent="CanvasLayer2/Control/HBoxContainer"]
+[node name=">button" type="Button" parent="CameraRig/CanvasLayer2/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 text = " ⮩ "
 
-[node name="VSlider" type="VSlider" parent="CanvasLayer2/Control/HBoxContainer"]
+[node name="VSlider" type="VSlider" parent="CameraRig/CanvasLayer2/Control/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 max_value = 40.0
 step = 5.0
 
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/<button" to="CameraRig" method="_on_l_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/^button" to="CameraRig" method="_on_up_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/obutton" to="CameraRig" method="_on_center_obutton_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/VBoxContainer/vbutton" to="CameraRig" method="_on_down_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/>button" to="CameraRig" method="_on_r_button_pressed"]
-[connection signal="value_changed" from="CanvasLayer2/Control/HBoxContainer/VSlider" to="CameraRig" method="_on_zoom_slider_value_changed"]
+[connection signal="pressed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/<button" to="CameraRig" method="_on_l_button_pressed"]
+[connection signal="pressed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer/^button" to="CameraRig" method="_on_up_button_pressed"]
+[connection signal="pressed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer/obutton" to="CameraRig" method="_on_center_obutton_pressed"]
+[connection signal="pressed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/VBoxContainer/vbutton" to="CameraRig" method="_on_down_button_pressed"]
+[connection signal="pressed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/>button" to="CameraRig" method="_on_r_button_pressed"]
+[connection signal="value_changed" from="CameraRig/CanvasLayer2/Control/HBoxContainer/VSlider" to="CameraRig" method="_on_zoom_slider_value_changed"]
